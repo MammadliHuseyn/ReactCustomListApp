@@ -1,0 +1,31 @@
+{
+    "countries": [
+        {
+            "name": "Azerbaijan"
+        },
+        {
+            "name": "Turkey"
+        },
+        {
+            "name": "Italy"
+        },
+        {
+            "name": "Russia"
+        },
+        {
+            "name": "Austria"
+        },
+        {
+            "name": "Ukraine"
+        },
+        {
+            "name": "Japan"
+        },
+        {
+            "name": "Germany"
+        },
+        {
+            "name": "Netherlands"
+        }
+    ]
+}
