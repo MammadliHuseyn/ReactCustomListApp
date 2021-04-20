@@ -123,11 +123,9 @@ const App = () => {
       {ToDoList.filter(x => !x.isDeleted).map((item, key) => {
         let lineth = "";
         let checked = "";
-        let editable = "";
         if (item.isDone) {
           lineth = "toDoItemDone";
           checked = "checked";
-          editable = "disabled"
         }
         return <ToDoItem
           toDo={item.todoName}
@@ -137,7 +135,7 @@ const App = () => {
           done={() => CheckboxHandler(item.id)}
           lineth={lineth}
           checked={checked}
-          isDisabled={editable}
+          isDisabled={item.isDone}
           
         />
       })}
