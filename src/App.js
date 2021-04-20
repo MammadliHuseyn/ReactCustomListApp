@@ -29,6 +29,8 @@ const App = () => {
 
   const [ToDoList, SetToDoList] = useState(state.ToDoList);
   const [ToDoInput, SetToDoInput] = useState('');
+  const [isEditMode, SetEditMode] = useState(false);
+  const [EditId, SetEditId] = useState(0);
 
 
   const DeleteHandler = (id) => {
@@ -62,14 +64,17 @@ const App = () => {
     const list = [...ToDoList];
     const item = list.filter(x => x.id === id)[0];
 
-    if (ToDoInput == "") {
-      SetToDoInput(item.todoName);
-    }
-    else {
-      list.filter(x => x.id === id)[0].todoName = ToDoInput;
-      SetToDoList(list);
-      SetToDoInput("");
-    }
+    SetEditMode(true);
+    SetEditId(id);
+
+    // if (ToDoInput == "") {
+    SetToDoInput(item.todoName);
+    // }
+    // else {
+    //   list.filter(x => x.id === id)[0].todoName = ToDoInput;
+    //   SetToDoList(list);
+    //   SetToDoInput("");
+    // }
   }
 
   const CheckboxHandler = (id) => {
@@ -80,31 +85,62 @@ const App = () => {
     SetToDoList(list);
   }
 
+  const SaveHandler = (id) => {
+    if (id != 0) {
+      const list = [...ToDoList];
+      let item = list.filter(x => x.id == id)[0];
+      item.todoName = ToDoInput;
+      SetToDoList(list);
+      SetToDoInput("");
+    }
+    SetEditMode(false);
+  }
+
+  const CancelHandler = () => {
+    SetEditMode(false);
+    SetToDoInput("");
+  }
+
+  let btn;
+  let cancel;
+  if (isEditMode && ToDoInput != "") {
+    btn = <button className="btn btn-danger" onClick={id => SaveHandler(EditId)}>Save</button>
+    cancel = <button className="btn btn-primary" onClick={CancelHandler}>Cancel</button>
+  }
+  else {
+    btn = <button className="btn" onClick={AddHandler}>Add</button>;
+  }
+
   return (
     <div className="App" >
       <h1>To Do List</h1>
       <br />
       <input type="text" onChange={event => SetToDoInput(event.target.value)} value={ToDoInput} />
-      <button className="btn" onClick={AddHandler}>add</button>
+
+      {btn}
+      {cancel}
 
       {ToDoList.filter(x => !x.isDeleted).map((item, key) => {
         let lineth = "";
         let checked = "";
+        let editable = "";
         if (item.isDone) {
           lineth = "toDoItemDone";
           checked = "checked";
+          editable = "disabled"
         }
         return <ToDoItem
           toDo={item.todoName}
           key={key}
           delete={() => DeleteHandler(item.id)}
-          edit={event => EditHandler(item.id, event.target)}
-          done={event => CheckboxHandler(item.id)}
+          edit={() => EditHandler(item.id)}
+          done={() => CheckboxHandler(item.id)}
           lineth={lineth}
           checked={checked}
+          isDisabled={editable}
+          
         />
       })}
-
 
     </div>
   )

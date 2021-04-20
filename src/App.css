@@ -26,10 +26,11 @@
 }
 
 .d-none {
-  display: none;
+  display: none!important;
 }
 
 .btn {
+  background-color: rgb(190, 187, 187);
   display: inline-block;
   margin-bottom: 0;
   font-weight: 400;
@@ -45,14 +46,12 @@
   font-size: 14px;
   line-height: 1.42857143;
   border-radius: 4px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
 .btn:hover {
-  color: #333;
+  color: rgb(34, 33, 33);
+  background-color: rgb(172, 170, 170);
   text-decoration: none;
 }
 
@@ -72,7 +71,7 @@
   color: #fff;
   background-color: #337ab7;
   border-color: #2e6da4;
-  margin-left:1em;
+  margin-left: 1em;
 }
 
 .btn-primary:hover {
@@ -87,6 +86,16 @@ input[type=text] {
   margin-right: 1em;
 }
 
-.toDoItemDone{
+.toDoItemDone {
   text-decoration: line-through;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  background: gray;
+  border-color: gray;
+}
+
+button:disabled:hover {
+  background:gray;
 }
