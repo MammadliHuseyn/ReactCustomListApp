@@ -1,5 +1,5 @@
 {
-  "name": "to-do-list-app",
+  "name": "drag-drop-files-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,7 +9,8 @@
     "radium": "^0.26.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
-    "react-scripts": "3.4.4"
+    "react-scripts": "3.4.4",
+    "react-uuid": "^1.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
