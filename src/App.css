@@ -11,89 +11,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #5256ad;
-}
-
-.drag-area {
-  border: 2px dashed #fff;
-  height: 500px;
-  width: 700px;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.drag-area.active {
-  border: 2px solid #fff;
-}
-
-.drag-area .icon {
-  font-size: 100px;
-  color: #fff;
-}
-
-.drag-area header {
-  font-size: 30px;
-  font-weight: 500;
-  color: #fff;
-}
-
-.drag-area span {
-  font-size: 25px;
-  font-weight: 500;
-  color: #fff;
-  margin: 10px 0 15px 0;
-}
-
-.drag-area button.btn-browse {
-  padding: 10px 25px;
-  font-size: 20px;
-  font-weight: 500;
-  border: none;
-  outline: none;
   background: #fff;
-  color: #5256ad;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.drag-area img {
-  height: 100px;
-  width: 100%;
-  opacity: 0.8;
-  object-fit: cover;
-  border-radius: 5px;
-  margin-left: 1em;
-  margin-top: 1em;
-}
-
-.uploaded-files {
-  width: 19%;
-  display: inline-block;
-  padding: .3em;
-  position: relative;
-}
-
-.uploaded-files button.btn-delete {
-  background-color: rgb(185, 45, 45);
-  border: none;
-  padding: .1em .6em;
-  position: absolute;
-  right: 0%;
-  top: 20%;
-  opacity: .6;
-  cursor: pointer;
-  border-radius: 15px;
-}
-
-.uploaded-files button.btn-delete:hover {
-  opacity: 1;
-}
-
-.uploaded-files button.btn-delete:focus {
-  outline: none!important;
 }
 
 .drag-over {
@@ -106,4 +24,73 @@ body {
 
 .d-flex {
   display: flex;
+}
+
+div.selectList {
+  width: 20em;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+div.selectList input {
+  height: 3em;
+  width: 100%;
+  border-radius: 3px 3px 0px 0px;
+  border-style: solid;
+  font-size: 1em;
+}
+
+div.selectList div.options {
+  background-color: rgb(214, 214, 214);
+  border-radius: 0px 0px 3px 3px;
+  /* overflow-y: scroll;
+  height: 150px; */
+}
+
+div.options p {
+  padding: 10px;
+  cursor: pointer;
+}
+
+div.options p:hover {
+  background-color: rgb(177, 177, 177);
+}
+
+.input-section {
+  position: relative;
+}
+
+.input-section .fa-angle-down {
+  position: absolute;
+  padding: 10px;
+  right: 0%;
+  top: 5%;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.selected-options button>i {
+  padding: 3px;
+}
+
+.selected-options button.btn-delete-option {
+  cursor: pointer;
+  margin-right: .25em;
+  margin-top: .5em;
+  margin-bottom: .5em;
+  border: none;
+  background-color: rgb(214, 214, 214);
+  padding: 0px 5px;
+  font-size: 1em;
+  border-radius: 3px;
+  font-weight: 400;
+}
+
+.selected-options button.btn-delete-option:focus {
+  outline: none;
+}
+
+.selected-options button.btn-delete-option:hover {
+  background-color: rgb(177, 177, 177);
 }
